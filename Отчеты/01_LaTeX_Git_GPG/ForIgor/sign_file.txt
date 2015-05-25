@@ -1,0 +1,10 @@
+All_ports = lists:keyfind(all_ports, 1, State),
+	Issi = lists:keyfind(issi, 1, Params),
+	Site_id = lists:keyfind(site_id, 1, Params),
+	Zone_id = lists:keyfind(zone_id, 1, Params),
+	Wacn = lists:keyfind(wacn, 1, Params),
+	System_id = lists:keyfind(system_id, 1, Params),
+	%%Find Port's pid by zone_id, site_id
+	List_site_id = find_element(All_ports, Site_id),
+	[Reg_port | _] = find_element(List_site_id, Zone_id),
+	Port = lists:keyfind(pid, 1, Reg_port),
